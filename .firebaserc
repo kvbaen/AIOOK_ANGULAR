@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "aiook-ang": {
+      "hosting": {
+        "AIOOK_ANGULAR": [
+          "aiook-ang"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "aiook-ang"
+  }
+}
