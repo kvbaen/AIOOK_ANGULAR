@@ -1,0 +1,7 @@
+<mat-form-field>
+    <input matInput ([(ngModel)]="newTitle") placeholder="new title">
+    <input matInput ([(ngModel)]="newType") placeholder="new type">
+    <input matInput ([(ngModel)]="newDuration") placeholder="new duration">
+</mat-form-field>
+
+<button mat-raised-button (click)="updateMovie">Save</button>

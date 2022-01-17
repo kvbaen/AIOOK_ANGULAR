@@ -1,1 +1,89 @@
-<p>movies works!</p>
+<!-- <div class="create-page">
+    <nav aria-label="breadcrumb">
+        <div class="breadcrumb-item active" aria-current="page">Create Movie</div>
+    </nav>
+    <div class="page-content">
+        <div class="row">
+            <div class="col col-md-8">
+
+                <form class="create-form" [formGroup]="movieForm" novalidate (ngSubmit)="onSubmit(movieForm.value)">
+
+                    <div class="form-group">
+                        <mat-form-field class="input-style">
+                            <input matInput placeholder="Title" class="form-control" formControlName="title">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of validation_messages.title">
+                            <mat-error *ngIf="movieForm.hasError('required', 'title')">{{validation.message}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="form-group">
+                        <mat-form-field class="input-style">
+                            <input matInput type="number" min="0" max="100" placeholder="Duration" class="form-control"
+                                formControlName="duration">
+                        </mat-form-field>
+                        <ng-container *ngFor="let validation of validation_messages.duration">
+                            <mat-error *ngIf="movieForm.hasError('required', 'duration')">{{validation.message}}
+                            </mat-error>
+                        </ng-container>
+                    </div>
+
+                    <div class="row submit-button-container">
+                        <div class="col-md-4">
+                            <button mat-raised-button class="submit-button" color="primary" type="submit"
+                                [disabled]="!movieForm.valid">Create</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div class="card">
+    <div class="card-content">
+        <span class="card-title">Add Movie</span>
+        <form (ngSubmit)="onSubmit()" class="col s6">
+            <div class="row">
+                <div class="input-field col s3">
+                    <input type="text" placeholder="Add Title" [(ngModel)]="movie.title" name="title">
+                    <label>Title</label>
+                </div>
+                <div class="input-field col s3">
+                    <input type="text" placeholder="Add Type" [(ngModel)]="movie.type" name="type">
+                    <label>Type</label>
+                </div>
+                <div class="input-field col s3">
+                    <input type="text" placeholder="Add Duration" [(ngModel)]="movie.duration" name="duration">
+                    <label>Duration</label>
+                </div>
+                <input type="submit" value="Submit" class="btn">
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <h4>Add movie</h4>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="add-movie-container">
+        <form (ngSubmit)="onSubmit()" >
+            <mat-form-field>
+                <input matInput type="text" placeholder="Add Title" [(ngModel)]="movie.title" name="title">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Add Type" [(ngModel)]="movie.type" name="type">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Add Duration" [(ngModel)]="movie.duration" name="duration">
+            </mat-form-field>
+            <input type="submit" value="Submit" class="btn">
+        </form>
+    </mat-card-content>
+</mat-card>
