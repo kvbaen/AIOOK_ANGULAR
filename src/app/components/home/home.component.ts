@@ -68,10 +68,13 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog(data: any): void {
+    console.log(data)
     const dialogRef = this.dialog.open(EditMovieComponent, {
       height: '400px',
       width: '600px',
-      data: data
+      data: {
+        movie: data
+      }
     })
   }
   // dataSource!: MatTableDataSource<any>;
@@ -79,7 +82,7 @@ export class HomeComponent implements OnInit {
   // displayedColumns = [
   //   'title',
   //   'duration',
-  //   'edit', 
+  //   'edit',
   //   'delete'
   // ];
 

@@ -1,7 +1,20 @@
-<mat-form-field>
-    <input matInput ([(ngModel)]="newTitle") placeholder="new title">
-    <input matInput ([(ngModel)]="newType") placeholder="new type">
-    <input matInput ([(ngModel)]="newDuration") placeholder="new duration">
-</mat-form-field>
+<div >
+<form >
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput type='text' [(ngModel)]="newTitle" name="title" value={{data.movie.title}}>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Type</mat-label>
+    <input matInput type='text' [(ngModel)]="newType" name="title" value={{data.movie.type}}>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Duration </mat-label>
+    <input matInput type='number' [(ngModel)]="newDuration" name="title" value={{data.movie.duration}}>
+  </mat-form-field>
+</form>
+</div>
 
-<button mat-raised-button (click)="updateMovie">Save</button>
+
+
+<button mat-raised-button (click)="updateMovie()">Save</button>
