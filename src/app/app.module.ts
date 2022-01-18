@@ -22,6 +22,12 @@ import { MatCardModule } from '@angular/material/card';
 import { FirebaseService } from './services/firebase.service';
 import { EditMovieComponent } from './components/edit-movie/edit-movie.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RoomsComponent } from './components/rooms/rooms.component';
+import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
+import { EditRoomComponent } from './components/edit-room/edit-room.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { HomeeComponent } from './components/homee/homee.component';
 
 
 @NgModule({
@@ -29,7 +35,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppComponent,
     MoviesComponent,
     HomeComponent,
-    EditMovieComponent
+    EditMovieComponent,
+    RoomsComponent,
+    RoomsListComponent,
+    EditRoomComponent,
+    HomeeComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +57,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatInputModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [
     FirebaseService

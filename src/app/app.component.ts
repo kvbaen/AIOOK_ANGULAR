@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'AIOOK_ANGULAR';
 
-  constructor(){}
+  constructor(private router: Router) { }
+
+  btnMovies() {
+    this.router.navigateByUrl('/Movies');
+  };
+
+  btnRooms() {
+    this.router.navigateByUrl('/Rooms');
+  };
+
 }

@@ -81,9 +81,10 @@
                 <input matInput type="text" placeholder="Add Type" [(ngModel)]="movie.type" name="type">
             </mat-form-field>
             <mat-form-field>
-                <input matInput type="text" placeholder="Add Duration" [(ngModel)]="movie.duration" name="duration">
+                <input matInput type="number" min="30" max="300" placeholder="Add Duration" [(ngModel)]="movie.duration" name="duration">
             </mat-form-field>
-            <input type="submit" value="Submit" class="btn">
+            <button mat-raised-button color="accent" type="submit" value="Submit" class="btn">Submit</button>
         </form>
     </mat-card-content>
 </mat-card>
+<app-home></app-home>

@@ -1,4 +1,10 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-raised-button color="primary">Home</button>
+    <button mat-raised-button color="primary" (click)="btnMovies()">Movies</button>
+    <button mat-raised-button color="primary" (click)="btnRooms()">Rooms</button>
+  </mat-toolbar-row>
+</mat-toolbar>
 <div class="container">
-    <app-movies></app-movies>
-    <app-home></app-home>
+  <router-outlet></router-outlet>
 </div>
