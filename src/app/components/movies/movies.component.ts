@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from '../../services/firebase.service'
-import { Router } from '@angular/router';
 import { Movie } from '../models/movie';
+import { MatDialog } from '@angular/material/dialog';
+import { MovieEditDialogComponent } from '../movie-edit-dialog/movie-edit-dialog.component';
+import { MovieAddDialogComponent } from '../movie-add-dialog/movie-add-dialog.component';
 
 @Component({
   selector: 'app-movies',
@@ -10,61 +11,52 @@ import { Movie } from '../models/movie';
   styleUrls: ['./movies.component.sass']
 })
 export class MoviesComponent implements OnInit {
-
-  movie: Movie = {
-    title: '',
-    type: '',
-    duration:''
-  }
-
-  constructor(private firebaseService: FirebaseService) { }
+  movies: Movie[] = [];
+  displayedColumns = [
+    'title',
+    'type',
+    'duration',
+    'edit',
+    'delete'
+  ];
+  constructor(public dialog: MatDialog, private firebaseService: FirebaseService) { }
 
   ngOnInit() {
+    this.refreshMovies();
   }
 
-  onSubmit(){
-    if(this.movie.title != '' && this.movie.type != '' && this.movie.duration != ''){
-      this.firebaseService.addMovie(this.movie);
-      this.movie.title = '';
-      this.movie.type = '';
-      this.movie.duration = '';
-    }
+  openDialogEdit(data: Movie): void {
+    console.log(data);
+    let dialogRef = this.dialog.open(MovieEditDialogComponent, {
+      data: {
+        movie: data
+      }
+    });
+    dialogRef.afterClosed().subscribe((data: Movie[]) => {
+      this.refreshMovies()
+    });
   }
-  // movieForm!: FormGroup;
 
-  // validation_messages = {
-  //   'title': [
-  //     { type: 'required', message: 'Title is required.' }
-  //   ],
-  //   'duration': [
-  //     { type: 'required', message: 'Duration is required.' },
-  //   ]
-  // };
+  openDialog(): void {
+    let dialogRef = this.dialog.open(MovieAddDialogComponent);
+    dialogRef.afterClosed().subscribe((data: Movie[]) => {
+      this.refreshMovies()
+    });
+  }
 
-  // constructor(private fb: FormBuilder, public firebaseService: FirebaseService, private router: Router) {
-  // }
+  deleteMovie(movie: Movie) {
+    this.firebaseService.deleteMovie(movie);
+  }
 
-  // ngOnInit(): void {
-  //   this.movieForm = this.fb.group({
-  //     title: new FormControl('', Validators.required),
-  //     duration: new FormControl('', Validators.required)
-  //   });
-  // }
-
-  // resetFields(){
-  //   this.movieForm = this.fb.group({
-  //     title: new FormControl('', Validators.required),
-  //     duration: new FormControl('', Validators.required)
-  //   });
-  // }
-
-  // onSubmit(value: { title: string; duration: number; }){
-  //   this.firebaseService.addMovie(value)
-  //   .then(
-  //     res => {
-  //       this.resetFields();
-  //       this.router.navigate(['/home']);
-  //     }
-  //   )
-  // }
+  refreshMovies() {
+    this.firebaseService.getMovies().subscribe(movies => {
+      this.movies = movies;
+    },
+      (error => {
+        console.log(error)
+      })
+    );
+  }
 }
+
+

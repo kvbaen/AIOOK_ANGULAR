@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Add room</h1>
+<mat-dialog-content>
+    <form class="flex" [formGroup]='form' (ngSubmit)='submit()'>
+        <mat-form-field appearance="fill">
+            <mat-label class="form-label" for="number">Number </mat-label>
+            <input matInput type="number" class="form-control" id="number" formControlName="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label class="form-label" for="capacity">Capacity </mat-label>
+            <input matInput type="number"  class="form-control" id="capacity" formControlName="capacity">
+        </mat-form-field>
+        <mat-dialog-actions>
+            <button mat-raised-button mat-dialog-close (click)="dialogRef.close()">Close</button>
+            <button type="submit" (click)="dialogRef.close()" mat-raised-button color="primary">Add</button>
+        </mat-dialog-actions>
+    </form>
+</mat-dialog-content>

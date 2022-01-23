@@ -15,31 +15,29 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MoviesComponent } from './components/movies/movies.component';
-import { HomeComponent } from './components/home/home.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FirebaseService } from './services/firebase.service';
-import { EditMovieComponent } from './components/edit-movie/edit-movie.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RoomsComponent } from './components/rooms/rooms.component';
-import { RoomsListComponent } from './components/rooms-list/rooms-list.component';
-import { EditRoomComponent } from './components/edit-room/edit-room.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { HomeeComponent } from './components/homee/homee.component';
+import { MovieAddDialogComponent } from './components/movie-add-dialog/movie-add-dialog.component';
+import { MovieEditDialogComponent } from './components/movie-edit-dialog/movie-edit-dialog.component';
+import { RoomEditDialogComponent } from './components/room-edit-dialog/room-edit-dialog.component';
+import { RoomAddDialogComponent } from './components/room-add-dialog/room-add-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    HomeComponent,
-    EditMovieComponent,
     RoomsComponent,
-    RoomsListComponent,
-    EditRoomComponent,
-    HomeeComponent
+    MovieAddDialogComponent,
+    MovieEditDialogComponent,
+    RoomEditDialogComponent,
+    RoomAddDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +57,7 @@ import { HomeeComponent } from './components/homee/homee.component';
     MatCardModule,
     MatDialogModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [
     FirebaseService

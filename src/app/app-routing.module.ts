@@ -5,9 +5,7 @@ import { RoomsComponent } from './components/rooms/rooms.component';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/app',
-    pathMatch: 'full'
+    path: '', component: MoviesComponent
   },
   {
     path: 'Rooms', component: RoomsComponent

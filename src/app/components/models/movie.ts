@@ -2,5 +2,5 @@ export interface Movie {
     id?: string;
     title?: string;
     type?: string;
-    duration?: string;
+    duration?: number;
 }
