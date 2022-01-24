@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Edit seance</h1>
+<mat-dialog-content>
+    <form class="flex" [formGroup]='form' (ngSubmit)='submit()'>
+        <mat-form-field appearance="fill">
+            <mat-label>Movie</mat-label>
+            <mat-select formControlName="movie" name="movie">
+                <mat-option *ngFor="let movie of movies" [value]="movie">
+                    {{movie.title}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Room</mat-label>
+            <mat-select formControlName="room" name="room">
+                <mat-option *ngFor="let room of rooms" [value]="room">
+                    {{room.number}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <input matInput type="datetime-local" class="form-control" [min]="minDate" formControlName="date">
+        </mat-form-field>
+        <mat-dialog-actions>
+            <button mat-raised-button mat-dialog-close (click)="dialogRef.close()">Close</button>
+            <button type="submit" (click)="dialogRef.close()" mat-raised-button color="primary">Save</button>
+        </mat-dialog-actions>
+    </form>
+</mat-dialog-content>

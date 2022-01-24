@@ -11,8 +11,8 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class RoomAddDialogComponent implements OnInit {
   public form: FormGroup = new FormGroup(
     {
-      number: new FormControl('', [Validators.required, Validators.minLength(1)]),
-      capacity: new FormControl('', [Validators.required, Validators.minLength(1)])
+      number: new FormControl('', [Validators.required, Validators.minLength(1), Validators.pattern("^[0-9]*$")]),
+      capacity: new FormControl('', [Validators.required, Validators.minLength(1), Validators.pattern("^[0-9]*$")])
     }
   );
 

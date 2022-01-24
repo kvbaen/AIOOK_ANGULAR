@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../services/firebase.service'
-import { Movie } from '../models/movie';
+import { Movie } from '../../models/movie';
 import { MatDialog } from '@angular/material/dialog';
-import { MovieEditDialogComponent } from '../movie-edit-dialog/movie-edit-dialog.component';
-import { MovieAddDialogComponent } from '../movie-add-dialog/movie-add-dialog.component';
+import { MovieEditDialogComponent } from './movie-edit-dialog/movie-edit-dialog.component';
+import { MovieAddDialogComponent } from './movie-add-dialog/movie-add-dialog.component';
 
 @Component({
   selector: 'app-movies',
@@ -28,6 +28,7 @@ export class MoviesComponent implements OnInit {
   openDialogEdit(data: Movie): void {
     console.log(data);
     let dialogRef = this.dialog.open(MovieEditDialogComponent, {
+      height: '225px',
       data: {
         movie: data
       }
@@ -38,7 +39,9 @@ export class MoviesComponent implements OnInit {
   }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(MovieAddDialogComponent);
+    let dialogRef = this.dialog.open(MovieAddDialogComponent, {
+      height: '225px'
+    });
     dialogRef.afterClosed().subscribe((data: Movie[]) => {
       this.refreshMovies()
     });

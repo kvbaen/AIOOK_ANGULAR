@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { Movie } from '../components/models/movie';
-import { Room } from '../components/models/room';
+import { Movie } from '../models/movie';
+import { Room } from '../models/room';
 import { map } from 'rxjs/operators';
+import { Seance } from '../models/seance';
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +16,9 @@ export class FirebaseService {
     roomsCollection!: AngularFirestoreCollection<Room>;
     rooms!: Observable<Room[]>;
     roomDoc!: AngularFirestoreDocument<Room>;
+    seancesCollection!: AngularFirestoreCollection<Seance>;
+    seances!: Observable<Seance[]>;
+    seanceDoc!: AngularFirestoreDocument<Seance>;
     constructor(public afs: AngularFirestore) {
         this.moviesCollection = this.afs.collection('movies', ref => ref.orderBy('title', 'asc'));
 
@@ -31,6 +35,17 @@ export class FirebaseService {
         this.rooms = this.roomsCollection.snapshotChanges().pipe(map(changes => {
             return changes.map(a => {
                 const data = a.payload.doc.data() as Room;
+                data.id = a.payload.doc.id;
+                return data;
+            });
+        }));
+
+        this.seancesCollection = this.afs.collection('seances');
+        // , ref => ref.orderBy('number', 'asc')
+
+        this.seances = this.seancesCollection.snapshotChanges().pipe(map(changes => {
+            return changes.map(a => {
+                const data = a.payload.doc.data() as Seance;
                 data.id = a.payload.doc.id;
                 return data;
             });
@@ -71,5 +86,23 @@ export class FirebaseService {
     updateRoom(room: Room) {
         this.roomDoc = this.afs.doc(`rooms/${room.id}`);
         this.roomDoc.update(room);
+    }
+
+    getSeances() {
+        return this.seances;
+    }
+
+    addSeance(seance: Seance) {
+        this.seancesCollection.add(seance);
+    }
+
+    deleteSeance(seance: Seance) {
+        this.seanceDoc = this.afs.doc(`seances/${seance.id}`);
+        this.seanceDoc.delete();
+    }
+
+    updateSeance(seance: Seance) {
+        this.seanceDoc = this.afs.doc(`seances/${seance.id}`);
+        this.seanceDoc.update(seance);
     }
 }

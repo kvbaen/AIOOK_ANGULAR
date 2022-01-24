@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { Room } from '../models/room';
-import { RoomAddDialogComponent } from '../room-add-dialog/room-add-dialog.component';
-import { RoomEditDialogComponent } from '../room-edit-dialog/room-edit-dialog.component';
+import { Room } from '../../models/room';
+import { RoomAddDialogComponent } from './room-add-dialog/room-add-dialog.component';
+import { RoomEditDialogComponent } from './room-edit-dialog/room-edit-dialog.component';
 
 @Component({
   selector: 'app-rooms',
@@ -28,6 +28,7 @@ export class RoomsComponent implements OnInit {
   openDialogEdit(data: Room): void {
     console.log(data);
     let dialogRef = this.dialog.open(RoomEditDialogComponent, {
+      height: '225px',
       data: {
         room: data
       }
@@ -38,7 +39,9 @@ export class RoomsComponent implements OnInit {
   }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(RoomAddDialogComponent);
+    let dialogRef = this.dialog.open(RoomAddDialogComponent, {
+      height: '225px'
+    });
     dialogRef.afterClosed().subscribe((data: Room[]) => {
       this.refreshRooms()
     });

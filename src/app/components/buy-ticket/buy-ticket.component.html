@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Seats</h1>
+<mat-dialog-content>
+    <form class="flex" [formGroup]='form' (ngSubmit)='submit()'>
+        <mat-form-field appearance="fill">
+            <mat-label>Select seat</mat-label>
+            <mat-select formControlName="seat" name="seat">
+                <mat-option *ngFor="let ticket of available_tickets" [value]="ticket">
+                    {{ ticket }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-dialog-actions>
+            <button mat-raised-button mat-dialog-close (click)="dialogRef.close()">Close</button>
+            <button type="submit" (click)="dialogRef.close()" mat-raised-button color="primary">Buy</button>
+        </mat-dialog-actions>
+    </form>
+</mat-dialog-content>

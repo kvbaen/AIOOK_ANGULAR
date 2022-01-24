@@ -23,10 +23,19 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { MovieAddDialogComponent } from './components/movie-add-dialog/movie-add-dialog.component';
-import { MovieEditDialogComponent } from './components/movie-edit-dialog/movie-edit-dialog.component';
-import { RoomEditDialogComponent } from './components/room-edit-dialog/room-edit-dialog.component';
-import { RoomAddDialogComponent } from './components/room-add-dialog/room-add-dialog.component';
+import { MovieAddDialogComponent } from './components/movies/movie-add-dialog/movie-add-dialog.component';
+import { MovieEditDialogComponent } from './components/movies/movie-edit-dialog/movie-edit-dialog.component';
+import { RoomEditDialogComponent } from './components/rooms/room-edit-dialog/room-edit-dialog.component';
+import { RoomAddDialogComponent } from './components/rooms/room-add-dialog/room-add-dialog.component';
+import { SeancesComponent } from './components/seances/seances.component';
+import { SeanceEditDialogComponent } from './components/seances/seance-edit-dialog/seance-edit-dialog.component';
+import { SeanceAddDialogComponent } from './components/seances/seance-add-dialog/seance-add-dialog.component';
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
+import { BuyTicketComponent } from './components/buy-ticket/buy-ticket.component';
+import { SeanceDetailsComponent } from './components/seances/seance-details/seance-details.component';
 
 
 @NgModule({
@@ -37,7 +46,12 @@ import { RoomAddDialogComponent } from './components/room-add-dialog/room-add-di
     MovieAddDialogComponent,
     MovieEditDialogComponent,
     RoomEditDialogComponent,
-    RoomAddDialogComponent
+    RoomAddDialogComponent,
+    SeancesComponent,
+    SeanceEditDialogComponent,
+    SeanceAddDialogComponent,
+    BuyTicketComponent,
+    SeanceDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +72,11 @@ import { RoomAddDialogComponent } from './components/room-add-dialog/room-add-di
     MatDialogModule,
     MatToolbarModule,
     MatIconModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    MatDatepickerModule,
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [
     FirebaseService

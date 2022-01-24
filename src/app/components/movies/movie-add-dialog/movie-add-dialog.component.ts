@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialogRef } from '@angular/material/dialog';
 import { title } from 'process';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { Movie } from '../models/movie';
+import { Movie } from '../../../models/movie';
 
 @Component({
   selector: 'app-movie-add-dialog',
