@@ -40,8 +40,7 @@ export class FirebaseService {
             });
         }));
 
-        this.seancesCollection = this.afs.collection('seances');
-        // , ref => ref.orderBy('number', 'asc')
+        this.seancesCollection = this.afs.collection('seances', ref => ref.orderBy('date', 'asc'));
 
         this.seances = this.seancesCollection.snapshotChanges().pipe(map(changes => {
             return changes.map(a => {

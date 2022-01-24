@@ -35,7 +35,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { BuyTicketComponent } from './components/buy-ticket/buy-ticket.component';
-import { SeanceDetailsComponent } from './components/seances/seance-details/seance-details.component';
+import { MoviesDetailsComponent } from './components/movies/movies-details/movies-details.component';
+
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { SeanceDetailsComponent } from './components/seances/seance-details/sean
     SeanceEditDialogComponent,
     SeanceAddDialogComponent,
     BuyTicketComponent,
-    SeanceDetailsComponent
+    MoviesDetailsComponent
   ],
   imports: [
     BrowserModule,

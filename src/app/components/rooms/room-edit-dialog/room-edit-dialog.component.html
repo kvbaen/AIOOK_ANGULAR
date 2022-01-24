@@ -3,11 +3,12 @@
     <form class="flex" [formGroup]='form' (ngSubmit)='submit()'>
         <mat-form-field appearance="fill">
             <mat-label class="form-label" for="number">Number </mat-label>
-            <input matInput type="number" class="form-control" id="number" formControlName="number">
+            <input matInput type="number" min="1" class="form-control" id="number" formControlName="number">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label class="form-label" for="capacity">Capacity </mat-label>
-            <input matInput type="number" class="form-control" id="capacity" formControlName="capacity">
+            <input matInput type="number" min="10" max="200" class="form-control" id="capacity"
+                formControlName="capacity">
         </mat-form-field>
         <mat-dialog-actions>
             <button mat-raised-button mat-dialog-close (click)="dialogRef.close()">Close</button>

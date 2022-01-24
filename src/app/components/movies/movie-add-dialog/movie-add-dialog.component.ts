@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { title } from 'process';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Movie } from '../../../models/movie';
+import { MoviesComponent } from '../movies.component';
 
 @Component({
   selector: 'app-movie-add-dialog',
