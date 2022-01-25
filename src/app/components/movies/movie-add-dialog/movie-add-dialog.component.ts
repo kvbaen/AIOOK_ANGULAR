@@ -17,9 +17,9 @@ export class MovieAddDialogComponent implements OnInit {
 
   public form: FormGroup = new FormGroup(
     {
-      title: new FormControl('', Validators.required),
-      type: new FormControl('', Validators.required),
-      duration: new FormControl('', Validators.required)
+      title: new FormControl('', [Validators.required, Validators.minLength(2), Validators.pattern('([A-Z]{1})([a-zA-Z ]*)')]),
+      type: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      duration: new FormControl('', [Validators.required, Validators.min(30), Validators.max(300), Validators.pattern('[0-9]*')])
     }
   );
 

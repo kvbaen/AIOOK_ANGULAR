@@ -12,9 +12,9 @@ import { Movie } from '../../../models/movie';
 export class MovieEditDialogComponent implements OnInit {
   public form: FormGroup = new FormGroup(
     {
-      title: new FormControl(this.data.movie.title, [Validators.required, Validators.minLength(2)]),
+      title: new FormControl(this.data.movie.title, [Validators.required, Validators.minLength(2), Validators.pattern('([A-Z]{1})([a-zA-Z ]*)')]),
       type: new FormControl(this.data.movie.type, [Validators.required, Validators.minLength(2)]),
-      duration: new FormControl(this.data.movie.duration, [Validators.required, Validators.minLength(2)])
+      duration: new FormControl(this.data.movie.duration, [Validators.required, Validators.min(30), Validators.max(300), Validators.pattern('[0-9]*')])
     }
   );
 
@@ -29,7 +29,6 @@ export class MovieEditDialogComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
-
   close(): void {
     this.dialogRef.close(this.form)
   }

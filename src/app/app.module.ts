@@ -35,7 +35,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { BuyTicketComponent } from './components/buy-ticket/buy-ticket.component';
-import { MoviesDetailsComponent } from './components/movies/movies-details/movies-details.component';
+import { MoviesDetailComponent } from './components/movies/movies-detail/movies-detail.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
@@ -52,7 +53,7 @@ import { MoviesDetailsComponent } from './components/movies/movies-details/movie
     SeanceEditDialogComponent,
     SeanceAddDialogComponent,
     BuyTicketComponent,
-    MoviesDetailsComponent
+    MoviesDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +78,8 @@ import { MoviesDetailsComponent } from './components/movies/movies-details/movie
     NgxMatTimepickerModule,
     MatDatepickerModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxChartsModule
   ],
   providers: [
     FirebaseService

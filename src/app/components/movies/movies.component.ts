@@ -4,6 +4,7 @@ import { Movie } from '../../models/movie';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieEditDialogComponent } from './movie-edit-dialog/movie-edit-dialog.component';
 import { MovieAddDialogComponent } from './movie-add-dialog/movie-add-dialog.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -16,10 +17,12 @@ export class MoviesComponent implements OnInit {
     'title',
     'type',
     'duration',
+    'detail',
     'edit',
     'delete'
   ];
-  constructor(public dialog: MatDialog, private firebaseService: FirebaseService) { }
+  constructor(public dialog: MatDialog, private firebaseService: FirebaseService,
+    private router: Router) { }
 
   ngOnInit() {
     this.refreshMovies();
@@ -60,6 +63,7 @@ export class MoviesComponent implements OnInit {
       })
     );
   }
+
 }
 
 

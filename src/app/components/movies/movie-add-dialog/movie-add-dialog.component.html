@@ -3,15 +3,49 @@
     <form class="flex" [formGroup]='form' (ngSubmit)='submit()'>
         <mat-form-field appearance="fill">
             <mat-label class="form-label" for="title">Title:</mat-label>
-            <input matInput type="text" min="2" class="form-control" id="title" formControlName="title">
+            <input matInput type="text" class="form-control" id="title" formControlName="title">
+            <mat-error
+                *ngIf="form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)">
+                <mat-error class="text-danger" *ngIf="form.controls['title'].hasError('required')">
+                    Please enter title
+                </mat-error>
+                <mat-error class="text-danger" *ngIf="form.controls['title'].hasError('minlength')">
+                    Title must be at least 2 characters long
+                </mat-error>
+            </mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label class="form-label" for="type">Type:</mat-label>
-            <input matInput type="text" min="2" class="form-control" id="type" formControlName="type">
+            <input matInput type="text" class="form-control" id="type" formControlName="type">
+            <mat-error
+                *ngIf="form.controls['type'].invalid && (form.controls['type'].dirty || form.controls['type'].touched)">
+                <mat-error class="text-danger" *ngIf="form.controls['type'].hasError('required')">
+                    Please enter type
+                </mat-error>
+                <mat-error class="text-danger" *ngIf="form.controls['type'].hasError('minlength')">
+                    Type must be at least 2 characters long
+                </mat-error>
+            </mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label class="form-label" for="duration">Duration </mat-label>
-            <input matInput type="number" min="30" max="300" class="form-control" id="duration" formControlName="duration">
+            <input matInput type="number" min="30" max="300" class="form-control" id="duration"
+                formControlName="duration">
+                <mat-error
+                *ngIf="form.controls['duration'].invalid && (form.controls['duration'].dirty || form.controls['duration'].touched)">
+                <mat-error class="text-danger" *ngIf="form.controls['duration'].hasError('required')">
+                    Please enter duration
+                </mat-error>
+                <mat-error class="text-danger" *ngIf="form.controls['duration'].hasError('min')">
+                    Duration must be at least 30 minutes
+                </mat-error>
+                <mat-error class="text-danger" *ngIf="form.controls['duration'].hasError('max')">
+                    Duration must not be more than 300 minutes
+                </mat-error>
+                <mat-error class="text-danger" *ngIf="form.controls['duration'].hasError('pattern')">
+                    Duration must be integer
+                </mat-error>
+            </mat-error>
         </mat-form-field>
         <mat-dialog-actions>
             <button mat-raised-button mat-dialog-close (click)="dialogRef.close()">Close</button>
